@@ -11,6 +11,15 @@ target 'Messenger' do
   target 'MessengerTests' do
     inherit! :search_paths
     # Pods for testing
+
+   
+    pod 'Firebase/Analytics'
+      pod 'FacebookCore'
+  pod 'FacebookLogin'
+  
+  pod 'FBSDKLoginKit'
+  
+    
   end
 
   target 'MessengerUITests' do
