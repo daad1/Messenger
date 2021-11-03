@@ -35,6 +35,7 @@
 		C337C4252730F9A4002BFB43 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C337C4242730F9A4002BFB43 /* NewConversationViewController.swift */; };
 		C337C4272730F9D2002BFB43 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C337C4262730F9D2002BFB43 /* ProfileViewController.swift */; };
 		C337C4292731212A002BFB43 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C337C4282731212A002BFB43 /* Extensions.swift */; };
+		C337C42B2732FB85002BFB43 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C337C42A2732FB85002BFB43 /* DatabaseManager.swift */; };
 		D9A0469556497676B469457B /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5BA7B6238CA0218656C632 /* Pods_Messenger.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		C337C4242730F9A4002BFB43 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		C337C4262730F9D2002BFB43 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C337C4282731212A002BFB43 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C337C42A2732FB85002BFB43 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		E10D0355C1AD8BD0335B093F /* Pods_Messenger_MessengerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Messenger_MessengerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F638B176E00779E806BEF38C /* Pods-Messenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messenger.debug.xcconfig"; path = "Target Support Files/Pods-Messenger/Pods-Messenger.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,6 +205,7 @@
 				C337C3D0272DBBC5002BFB43 /* AppDelegate.swift */,
 				C337C3D2272DBBC5002BFB43 /* SceneDelegate.swift */,
 				C337C4282731212A002BFB43 /* Extensions.swift */,
+				C337C42A2732FB85002BFB43 /* DatabaseManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C337C406272DBD60002BFB43 /* RegisterViewController.swift in Sources */,
+				C337C42B2732FB85002BFB43 /* DatabaseManager.swift in Sources */,
 				C337C4232730F88C002BFB43 /* VideoViewController.swift in Sources */,
 				C337C4252730F9A4002BFB43 /* NewConversationViewController.swift in Sources */,
 				C337C3D5272DBBC5002BFB43 /* ConversationsViewController.swift in Sources */,

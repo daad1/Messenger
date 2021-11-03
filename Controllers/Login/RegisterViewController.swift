@@ -16,8 +16,10 @@ class RegisterViewController: UIViewController , UIImagePickerControllerDelegate
     
     @IBOutlet weak var signUplbl: UILabel!
     
-    @IBOutlet weak var namefield: UITextField!
+    @IBOutlet weak var firstNamefield: UITextField!
     
+    
+    @IBOutlet weak var lastNamefield: UITextField!
     @IBOutlet weak var emailtextfield: UITextField!
     
     @IBOutlet weak var passwordtextfield: UITextField!
@@ -88,14 +90,17 @@ class RegisterViewController: UIViewController , UIImagePickerControllerDelegate
     // Button Create Account
     
     @IBAction func createAccountAction(_ sender: UIButton) {
-        namefield.resignFirstResponder()
+        firstNamefield.resignFirstResponder()
+        lastNamefield.resignFirstResponder()
         emailtextfield.resignFirstResponder()
         passwordtextfield.resignFirstResponder()
         // If name , email and pawword empty show message to fill it
-        guard let name = namefield.text ,
+        guard let firtname = firstNamefield.text ,
+              let lastname = lastNamefield.text ,
               let email = emailtextfield.text,
               let password = passwordtextfield.text,
-              !name.isEmpty,
+              !firtname.isEmpty,
+              !lastname.isEmpty,
               !email.isEmpty ,
               !password.isEmpty, password.count >= 6 else{
                   let alert = UIAlertController(title: "Woops",
@@ -106,19 +111,35 @@ class RegisterViewController: UIViewController , UIImagePickerControllerDelegate
                   
                   return
               }
+        
         // firebase Register
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult , error   in
-            guard let result = authResult , error == nil  else {
-                print("Error cureating user")
+        DatabaseManager.shared.userExists(with: email, completion:{ [weak self]exists in
+            guard let strongSelf = self else {
                 return
             }
-            let user = result.user
-            print("Create User: \(user)")
-            
-            
+            guard !exists else {
+                // user exists
+                
+                return
+            }
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: {  authResult , error   in
+               
+                guard authResult != nil , error == nil  else {
+                    print("Error cureating user")
+                    return
+                }
+                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firtname,
+                                                                    lastName: lastname,
+                                                                    email: email))
+                
+                strongSelf.navigationController?.popViewController(animated: true)
+                
+                
+            })
         })
+        
     }
-   
+    
 }
 
 
